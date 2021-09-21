@@ -63,10 +63,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['ProyectoSoftware/template',
-         '/ProyectoSoftwareF/adminApp/template',
-          'ProyectoSoftwareF/alumnoApp/template',
-          'ProyectoSoftwareF/AsesoresApp/template',
-          'ProyectoSoftwareF/SeguridadApp/template',
+         'adminApp/template',
+          'alumnoApp/template',
+          'AsesoresApp/template',
+          'SeguridadApp/template',
          ],
         'APP_DIRS': True,
         'OPTIONS': {
