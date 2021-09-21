@@ -1,0 +1,12 @@
+body { 
+    background-image: url(../img/fondoUNT.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 85rem;
+    background-position: center center;
+    backdrop-filter: blur(6px);
+    
+  }
+
+.cambiarColor{color:white;}
+.cambiarColor:hover{color:red}

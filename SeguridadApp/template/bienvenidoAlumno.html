@@ -1,0 +1,91 @@
+{%  extends "plantillaAlumno.html" %}
+
+{% block title %} Bienvenido {% endblock %}
+
+{% block content %} 
+
+<div class="row">
+  <div class="col">  <h3>BIENVENIDO ALUMNO  {{user.username}}</h3></div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-12">
+      <!-- small card -->
+      <div class="small-box bg-blue accent-blue">
+        <div class="inner">
+          <h3>PRÁCTICAS</h3>
+          {% if practicas %}
+            {% for item in practicas %}
+              <h4>{{item.horasPractica}} horas</h4>
+            {% endfor %}
+          {% else %}
+            <h4>0 Horas</h4>
+          {% endif %}
+        </div>
+        <div class="icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="progress">
+          <div id="barPractica" class="progress-bar bg-dark progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+        <a href="{% url 'listaPracticas' %}" class="small-box-footer">
+          Entrar <i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-md-6 col-12">
+      <!-- small card -->
+      <div class="small-box bg-dark pace-big-counter-gray-dark">
+        <div class="inner">
+          <h3>TESIS</h3>
+          {% if tesis %}
+            {% for item in tesis %}
+              <h4>Estado: {{item.estadoTesis}} </h4>
+            {% endfor %}
+          {% else %}
+              <h4>Estado: Ninguno</h4>
+          {% endif %}
+        </div>
+        <div class="icon">
+          <i class="fas fa-book-open "></i>
+        </div>
+        <div class="progress">
+          <div id="barTesis" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 70%"></div>
+        </div>
+        <a href="{% url 'listaTesis' %}" class="small-box-footer">
+          Entrar <i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--Esto esta de adorno-->
+    {% if messages %}
+      {% for m in messages %}
+        <script>
+          Swal.fire({
+          "title": "Mensaje",
+          "text":"{{m}}",
+          "icon":"info"
+          })
+        </script>
+      {% endfor %}
+    {% endif %}
+<script>
+var progreso=0;
+var idIterval=setInterval(function(){
+    //Aumento 10 en progreso
+    
+    progreso += 10;
+    $('#barPractica').css('width',progreso+'%');
+    $('#barTesis').css('width',progreso+'%');
+
+    if(progreso==100){
+      clearInterval(idIterval);
+    }
+},1000)
+
+</script>
+{% endblock %}

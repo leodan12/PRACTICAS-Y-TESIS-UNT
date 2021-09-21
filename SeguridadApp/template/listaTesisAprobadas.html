@@ -1,0 +1,79 @@
+{%  extends "plantilla3.html" %}
+
+{% block title %} TESIS - UNT {% endblock %}
+
+{% block content %} 
+
+<div class="row">
+  <div class="col col-12" style="text-align: center;">
+    {% if Linea %}    
+        
+    
+        <H3> AREA DE :  {{ Linea.lineaInvestigacion }} </H3>
+                    
+    {% endif %}                
+         </div>
+
+         <div class="col col-2">    <a href="../../../Tesis_Aprobadas" class="btn btn-secondary">Cancelar</a>    </div>
+         <div class="col col-5"> Tesis Disponibles : 
+          
+          {{ numero }}
+         </div>
+          
+          <div class="col-md-5 pull-right" style="align-items: right;">
+              <form action="" method="GET" > 
+                  <div class="input-group">
+                      <input type="text" name="buscar" id="buscar" cla
+                     ss="form-control" autofocus
+                      placeholder="Buscar Tesis" value="">
+                      <span class="input-group-btn">
+                      <button class="btn btn-primary">
+                      <i class="fa fa-search"></i>
+                      </button>
+                      </span>
+                      </div> 
+                      
+                      </form>
+                      </div> 
+                      <br>
+                      <br>
+                      
+
+</div>
+    
+<div class="row">
+    
+
+    {% if tesis %}
+        {% for itemI in tesis %} 
+        
+    <!-- ./col -->
+    <div class="col-md-12 col-12">
+      <!-- small card -->
+      <div class="small-box " style="background: rgb(83, 131, 204);">
+        <div class="inner">
+            <h5 _msthash="2764047" _msttexthash="15587">Tesis : {{ itemI.nombreTesis }}  </h5>
+            
+            <p _msthash="2690571" _msttexthash="235365">Año : {{ itemI.fechaFinal.year }}</p>
+          
+        </div>
+        <div class="icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+         
+        <a href="{{ itemI.informeFinal.url }}" class="small-box-footer"><font _mstmutation="1" _msthash="2242864" _msttexthash="305162"> VER TESIS COMPLETA </font><i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ./col -->
+        {% endfor %}
+    {% else %}
+        <tr style="text-align: center;">
+            <td colspan="6">
+                <p>No hay Registros</p>
+            </td> 
+        </tr>
+    {% endif %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{%  extends "plantilla.html" %}
+
+#{% block title %} PRACTICANTES {% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card card-outline card-info mt-3">
+        <div class="card-header">
+ 
+            <h1 class="card-title">LISTADO DE ALUMNOS EN PRACTICAS</h1> 
+            &nbsp;
+          
+        </div>
+    <div class="card-body">
+ 
+    <div class="row"> 
+        <div class="col-md-6 pull-right">
+            <form action="" method="GET"> 
+                <div class="input-group">
+                    <input type="text" name="buscar" id="buscar" cla
+                   ss="form-control" autofocus
+                    placeholder="Buscar" value="">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                    </button>
+                    </span>
+                    </div> 
+                    
+                    </form>
+                    </div> 
+                    </div> 
+                    <table class="table mt-2">
+                    <table id="tablasubfamilias" class="table table-striped mt4" style="width:100%">
+                    <thead class="bg-info text-white">
+                    <tr>
+                    <th>ALUMNO</th>
+                    <th>HORAS PRACTICA</th> 
+                    
+                    <th>LUGAR PRACTICA</th>
+                    <th>INICIO</th>
+                    <th>FINAL</th>
+                    <th>INFORME</th>
+                    <th>ESTADO</th>
+                    <th>ASESOR</th>
+                    <th><center>OPCIONES</center></th> 
+                    </tr>
+                    </thead> 
+                    {% if practicas %}
+                   
+                    {% for itempractica in practicas %} 
+                  <!--  {% if itempractica.asesorPracticas == user.username  %} -->
+                  
+                   <!--   {% endif  %} -->  
+                    <tr>
+                    <td>{{ itempractica.alumno }}</td>
+                    <td>{{ itempractica.horasPractica }}</td>
+                    <td>{{ itempractica.lugarPractica }}</td> 
+                    <td>{{ itempractica.fechaInicio }}</td>
+                    <td>{{ itempractica.fechaFinal }}</td> 
+                    <td>
+                        <a href="{{ itempractica.informePracticas.url }}" class="btn btn-sm btn-danger btn-add" target="_blank"><i class="fas fa-file-pdf"></i>
+                          Descargar
+                        </a>
+                      </td>
+                    <td>{{ itempractica.estadoPractica}}</td> 
+                    <td>{{ itempractica.asesorPracticas }}</td> 
+                    
+                    <td style="text-align: center;">
+                        <a  href="{% url 'editarPractica' itempractica.id %}" class="btn  bg-success">
+                            <i class="fas fa-eye"></i>
+                            <font _mstmutation="1" _msthash="2700880" _msttexthash="118365"> VER </font></a>
+                     </td>
+                </tr> 
+               
+                {% endfor %}
+            {% else %}
+                <tr style="text-align: center;">
+                    <td colspan="6">
+                        <p>No hay Registros</p>
+                    </td> 
+                </tr>
+            {% endif %} 
+            
+            </table> 
+           
+        </div>  
+      
+        </div>
+    </div>
+
+{% endblock %}            

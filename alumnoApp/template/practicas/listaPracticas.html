@@ -1,0 +1,121 @@
+{% extends "plantillaAlumno.html" %}
+
+{% block title %} Prácticas {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card card-outline card-info mt-3">
+        <div class="card-header">
+            <h1 class="card-title">LISTA DE PRÁCTICAS</h1>
+            <br>
+            <a href="{% url 'agregarPracticas' %}" class="btn btn-sm btn-primary btn-add"><i class="fas fa-plus"></i> AGREGAR</a>
+
+        </div>
+    <div class="card-body ">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <form action="" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Lugar de Práctica" value="">
+                        <span class="input-group-btn">
+                                <button class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <table class="table-dark">
+            <table id="tablacategorias" class="table table-dark table-striped table-hover table-responsive-xl" style="width:100%">
+            <thead class="bg-info text-white">
+                <tr align="center">
+                    <th>Código</th>
+                    <th>Horas de práctica</th>
+                    <th>Lugar de práctica </th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Avance(%)</th>
+                    <th>Informe</th>
+                    <th>Estado</th>
+                    <th>Asesor de Prácticas</th>
+                    <th><center>OPCIONES</center></th>
+                </tr>
+            </thead>    
+            {% if entity %}
+                {% for item in entity %}
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.horasPractica}}</td>
+                        <td>{{item.lugarPractica}}</td>
+                        <td>{{item.fechaInicio}}</td>
+                        <td>{{item.fechaFinal}}</td>
+                        <td>{{item.porcentajeAvance}}</td>
+                        <td>
+                          <a href="{{ item.informePracticas.url }}" class="btn btn-sm btn-danger btn-add" target="_blank"><i class="fas fa-file-pdf"></i>
+                            Descargar
+                          </a>
+                        </td>
+                        <td>{{item.estadoPractica}}</td>
+                        <td>{{item.asesorPracticas}}</td>
+                        <td style="text-align: center;">
+                            <a href="{% url 'editarPracticasAlumno' item.id %}"  class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a> 
+                           &nbsp;
+                            <a href="#" onclick="deletePracticas('{{item.id}}','{{item.horasPractica}}')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>  </a>
+                        </td>
+                    </tr>
+                {% endfor %}            
+            {% else %}
+                    <tr style="text-align: center;">
+                        <td colspan="3">
+                            <p> No hay Registros</p>
+                        </td>
+                    </tr>
+            {% endif %}    
+        </table>
+      </table>
+      <br>
+      <div>
+        {% include 'paginador.html' %}
+      </div>
+      </div>    
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--Esto esta de adorno-->
+    {% if messages %}
+      {% for m in messages %}
+        <script>
+          Swal.fire({
+          "title": "Felicitaciones",
+          "text":"{{m}}",
+          "icon":"success"
+          })
+        </script>
+      {% endfor %}
+    {% endif %}
+  <script>
+    function deletePracticas(id,horasPractica){
+      Swal.fire({
+        "title": "¿Desea remover el Registro?",
+        "text": "Codigo: "+ id + "   Horas: " + horasPractica,
+        "icon": "question",
+        "showCancelButton": true,
+        "cancelButtonText": "Negativo",
+        "confirmButtonText": "Afirmativo",
+        "reverseButton": true,
+        "confirmButtonColor": "#dc3545"
+      })
+      .then(function(result){
+        if(result.isConfirmed){
+          window.location.href="/eliminarPractica/"+id+"/"
+        }
+      })
+    }
+  </script>
+{% endblock %}

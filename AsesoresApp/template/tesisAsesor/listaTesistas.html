@@ -1,0 +1,96 @@
+{%  extends "plantilla.html" %}
+
+#{% block title %} TESISTAS {% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card card-outline card-info mt-3">
+        <div class="card-header">
+ 
+            <h1 class="card-title">LISTADO DE ALUMNOS EN TESIS</h1> 
+            &nbsp;
+           
+        </div>
+    <div class="card-body">
+ 
+    <div class="row"> 
+        <div class="col-md-6 pull-right">
+            <form action="" method="GET"> 
+                <div class="input-group">
+                    <input type="text" name="buscar" id="buscar" cla
+                   ss="form-control" autofocus
+                    placeholder="Buscar" value="">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                    </button>
+                    </span>
+                    </div> 
+                    
+                    </form>
+                    </div> 
+                    </div> 
+                    <table class="table mt-2">
+                    <table id="tablasubfamilias" class="table table-striped mt4" style="width:100%">
+                    <thead class="bg-info text-white">
+                    <tr>
+                    <th>ALUMNO</th>
+                    <th>TESIS</th>
+                    <th>AREA</th>
+                    <th>FINAL</th>
+                    
+                    <th>INFORME</th>
+                    <th>ESTADO</th>
+                    
+                    <th>JURADO</th>
+                    <th><center>OPCIONES</center></th> 
+                    </tr>
+                    </thead> 
+                    {% if tesis %}
+
+
+                   
+                   
+                    {% for itemtesis in tesis %} 
+                    <tr>
+                   
+                    <td>{{ itemtesis.alumno }}</td>
+                    <td>{{ itemtesis.nombreTesis}}</td> 
+                    <td>{{ itemtesis.lineaInvestigacion }}</td>
+                    <td>{{ itemtesis.fechaFinal }}</td> 
+                    
+                    <td>
+                        <a href="{{ itemtesis.informeFinal.url }}" class="btn btn-sm btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
+                          Descargar
+                        </a>
+                      </td>
+                    <td>{{ itemtesis.estadoTesis}}</td> 
+                    
+                    <td>{{ itemtesis.jurado}}</td> 
+                    
+                    
+                    <td style="text-align: center;">
+                        <a href="{% url 'editarTesis' itemtesis.id %}" class="btn  bg-success">
+                            <i class="fas fa-eye"></i><font _mstmutation="1" _msthash="2700880" _msttexthash="118365"> VER </font></a>
+                    
+                     </td>
+                   
+                </tr> 
+                {% endfor %}
+            {% else %}
+                <tr style="text-align: center;">
+                    <td colspan="6">
+                        <p>No hay Registros</p>
+                    </td> 
+                </tr>
+            {% endif %} 
+            
+            </table> 
+           
+        </div>  
+      
+        </div>
+    </div>
+
+{% endblock %}            

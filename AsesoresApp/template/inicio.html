@@ -1,0 +1,56 @@
+{%  extends "plantilla.html" %}
+
+{% block title %} BIENVENIDO {% endblock %}
+
+{% block content %} 
+<div class="row">
+  <div class="col">  <h3>BIENVENIDO ASESOR  {{user.username}}</h3></div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-12">
+      <!-- small card -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h3 _msthash="2764047" _msttexthash="15587">PRACTICANTES</h3>
+
+          <p _msthash="2690571" _msttexthash="235365">5</p>
+          <td>
+            <div class="progress progress-xs progress-striped active">
+              <div class="progress-bar bg-success" style="width: 20%"></div>
+            </div>
+          </td>
+        </div>
+        <div class="icon">
+          <i class=" fas fa-briefcase"></i>
+        </div>
+        <a href="../ListaPracticantes" class="small-box-footer"><font _mstmutation="1" _msthash="2241772" _msttexthash="305162"> VER PRACTICANTES </font><i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- ./col -->
+    <div class="col-md-6 col-12">
+      <!-- small card -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+            <h3 _msthash="2764047" _msttexthash="15587">TESISTAS</h3>
+
+            <p _msthash="2690571" _msttexthash="235365">4</p>
+          <td>
+            <div class="progress progress-xs progress-striped active">
+              <div class="progress-bar bg-success" style="width: 50%"></div>
+            </div>
+          </td>
+        </div>
+        <div class="icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <a href="../ListaTesistas" class="small-box-footer"><font _mstmutation="1" _msthash="2242864" _msttexthash="305162"> VER TESISTAS </font><i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ./col -->
+   
+  </div>
+
+{% endblock %}

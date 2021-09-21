@@ -1,0 +1,46 @@
+{%  extends "plantilla3.html" %}
+
+{% block title %} TESIS-UNT {% endblock %}
+
+{% block content %} 
+
+<div class="row">
+<div class="col col-2">    <a href="../../../" class="btn btn-secondary">Cancelar</a>    </div>        
+<div class="col col-10" style="text-align: center;"> <H3>AREAS DE INVESTIGACION DE LAS TESIS</H3></div></div>
+<div class="row">
+    
+
+    {% if Lineas_Investigacion %}
+        {% for itemI in Lineas_Investigacion %} 
+        
+    <!-- ./col -->
+    <div class="col-md-6 col-12">
+      <!-- small card -->
+      <div class="small-box  " style="background: palegreen;">
+        <div class="inner">
+            <h3 _msthash="2764047" _msttexthash="15587"> {{itemI.lineaInvestigacion}}  </h3>
+           
+          <td>
+             
+          </td>
+        </div>
+        <div class="icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+         
+        <a href="{% url 'VerTesisDisponibles' itemI.id %}" class="small-box-footer"><font _mstmutation="1" _msthash="2242864" _msttexthash="305162"> VER LISTA DE TESIS </font><i class="fas fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ./col -->
+        {% endfor %}
+    {% else %}
+        <tr style="text-align: center;">
+            <td colspan="6">
+                <p>No hay Registros</p>
+            </td> 
+        </tr>
+    {% endif %}
+  </div>
+
+{% endblock %}

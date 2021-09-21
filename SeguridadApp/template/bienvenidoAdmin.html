@@ -1,0 +1,27 @@
+{%  extends "plantillaAdmin.html" %}
+
+#{% block title %} Bienvenido {% endblock %}
+
+
+
+
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/fondo.css' %}" type="text/css">
+{% endblock %}
+
+
+{% block content %} 
+
+<div class="row">
+  <div class="col">  <h3>BIENVENIDO ADMIN : {{user.username}}</h3></div>
+</div>
+<div class="container">   
+   <img src="{% static '/img/admin2.png' %}" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
+   <img src="{% static '/img/admin.png' %}" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
+      
+
+
+</div>
+{% endblock %}
