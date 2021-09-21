@@ -19,4 +19,4 @@ DATABASES = {
 }
 
 STATICFILES_DIRS = (BASE_DIR,'SeguridadApp/static')
-TEMPLATES_DIRS =(BASE_DIR,'SeguridadApp/template')
+#TEMPLATES_DIRS =(BASE_DIR,'SeguridadApp/template')
