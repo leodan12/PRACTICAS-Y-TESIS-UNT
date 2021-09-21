@@ -62,11 +62,11 @@ ROOT_URLCONF = 'ProyectoSoftware.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Usuario/Downloads/PROYECTO-IS-1-FINAL/ProyectoSoftwareF/ProyectoSoftware/template',
-         'C:/Users/Usuario/Downloads/PROYECTO-IS-1-FINAL/ProyectoSoftwareF/adminApp/template',
-          'C:/Users/Usuario/Downloads/PROYECTO-IS-1-FINAL/ProyectoSoftwareF/alumnoApp/template',
-          'C:/Users/Usuario/Downloads/PROYECTO-IS-1-FINAL/ProyectoSoftwareF/AsesoresApp/template',
-          'C:/Users/Usuario/Downloads/PROYECTO-IS-1-FINAL/ProyectoSoftwareF/SeguridadApp/template',
+        'DIRS': ['ProyectoSoftware/template',
+         '/ProyectoSoftwareF/adminApp/template',
+          'ProyectoSoftwareF/alumnoApp/template',
+          'ProyectoSoftwareF/AsesoresApp/template',
+          'ProyectoSoftwareF/SeguridadApp/template',
          ],
         'APP_DIRS': True,
         'OPTIONS': {
