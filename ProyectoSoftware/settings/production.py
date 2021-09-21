@@ -9,10 +9,10 @@ ALLOWED_HOSTS = ['practicastesisunt.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'dbProyectoSoftware1',
-        'USER':'postgres',
-        'PASSWORD':'123456789',
-        'HOST':'127.0.0.1',
+        'NAME':'dflbjvkq4ug87q',
+        'USER':'bxlfibqwqpfddw',
+        'PASSWORD':'3a325632e289c2da19233244e9dc87937bade9aab900f93801ce8e7c0f79e7d1',
+        'HOST':'ec2-44-194-6-121.compute-1.amazonaws.com',
         'DATABASE_PORT':'5432',
         
     }
