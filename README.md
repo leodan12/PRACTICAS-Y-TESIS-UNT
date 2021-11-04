@@ -10,3 +10,17 @@ INTEGRANTES:
 ESTE PROYECTO FUE SUBIDO A HEROKU ACONTINUACION SE PRESENTA EL ENLACE
 https://practicastesisunt.herokuapp.com/
 
+USUARIOS:
+
+Administrador:
+user:	administrador
+password:   password
+
+Alumno:
+user:	dany
+password:    estudiante123
+
+
+Asesor:	  
+user:	robert
+password:    profesor123
